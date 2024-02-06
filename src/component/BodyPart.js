@@ -4,21 +4,24 @@ import Icon from '../assets/icons/gym.png'
 
 
 
-const bodyPart = ({ item, borderTop, bodyPart }) => {
+const bodyPart = ({ item, bodyPart, setbodyPart }) => {
     return (
         <Stack type='button'
             alignItems='center'
             justifyContent='center'
             className='bodyPart-card'
             sx={{
-                borderTop: bodyPart === item ?
-                    '4px solid #ff2625' : '',
+                borderTop: bodyPart === item ? '4px solid #ff2625' : '',
                 backgroundColor: '#fff',
                 borderBottomLeftRadius: '20PX',
                 width: '270px',
                 height: '280px',
                 cursor: 'pointer',
                 gap: '47px'
+            }}
+            onClick={() => {
+                setbodyPart(item);
+                window.scrollTo({ top: 1800, left: 1000, behavior: 'smooth' });
             }}
 
 
@@ -31,9 +34,13 @@ const bodyPart = ({ item, borderTop, bodyPart }) => {
 
 
         >
-            <img src={Icon} alt='dumbbell' styles={{ with: '40px', Height: '40px' }} />
+            <img src={Icon} alt='dumbbell' style={{ with: '40px', height: '40px' }} />
+            <Typography fontSize='24px' fontWeight='bold' color='#3a1212'
+                textTransform='capitalize'>
+                {item}
+            </Typography>
         </Stack >
     )
 }
 
-export default bodyPart
+export default bodyPart 
